@@ -16,19 +16,15 @@ public class TicketOfferRepository {
     }
 
     public TicketOffer[] findAll(String out, String in) {
-        //System.out.println("Ищем билеты из " + out + " в " + in);
-
         int i = 0;
         TicketOffer[] result = new TicketOffer[items.length];
         for (TicketOffer item : items) {
-            if (item.getAirportOut() == out) {
-                if (item.getAirportIn() == in) {
-                    //System.out.println("Нашли билет " + item.getId());
+            if (item.getAirportOut() == out && item.getAirportIn() == in) {
                     i = i + 1;
                     result[i - 1] = item;
                 }
             }
-        }
+
         return deleteNull(result);
     }
 

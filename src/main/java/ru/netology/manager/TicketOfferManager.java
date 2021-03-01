@@ -4,6 +4,8 @@ import ru.netology.domain.NotFoundException;
 import ru.netology.domain.TicketOffer;
 import ru.netology.repository.TicketOfferRepository;
 
+import java.util.Arrays;
+
 public class TicketOfferManager {
     private TicketOfferRepository repository;
 
@@ -19,11 +21,12 @@ public class TicketOfferManager {
     }
 
     public TicketOffer[] getAll(String airportOut, String airportIn) {
-        if (repository.findAll(airportOut, airportIn).length == 0) {
+        TicketOffer[] result = repository.findAll(airportOut, airportIn);
+        if (result.length == 0) {
             System.out.println("Path from " + airportOut + " to " + airportIn + " not found");
             throw new NotFoundException(airportOut, airportIn);
         }
-        TicketOffer[] result = repository.findAll(airportOut, airportIn);
+        Arrays.sort(result);
         return result;
     }
 

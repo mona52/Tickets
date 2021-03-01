@@ -40,7 +40,7 @@ class TicketOfferManagerTest {
     void shouldGetAllExistManyDifferentPrices() {
         TicketOffer[] actual = manager.getAll("AAA", "BBB");
         TicketOffer[] expected = new TicketOffer[]{ticketOffer5, ticketOffer1, ticketOffer4};
-        Arrays.sort(actual);
+        //Arrays.sort(actual);
         assertArrayEquals(expected, actual);
     }
 
@@ -48,7 +48,7 @@ class TicketOfferManagerTest {
     void shouldGetAllExistManyNotDifferentPrices() {
         TicketOffer[] actual = manager.getAll("BBB", "AAA");
         TicketOffer[] expected = new TicketOffer[]{ticketOffer2, ticketOffer8, ticketOffer7};
-        Arrays.sort(actual);
+        //Arrays.sort(actual);
         assertArrayEquals(expected, actual);
     }
 
@@ -56,7 +56,7 @@ class TicketOfferManagerTest {
     void shouldGetAllExistOne() {
         TicketOffer[] actual = manager.getAll("BBB", "CCC");
         TicketOffer[] expected = new TicketOffer[]{ticketOffer6};
-        Arrays.sort(actual);
+        //Arrays.sort(actual);
         assertArrayEquals(expected, actual);
     }
 
